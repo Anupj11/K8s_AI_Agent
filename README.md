@@ -1,6 +1,12 @@
-# 🤖 Kubernetes AI Agent using CrewAI, OpenAI & Python
+# 🤖 Kubernetes AI Assistant  
+An intelligent CLI-based Kubernetes Assistant that uses **AI (OpenRouter Llama/DeepSeek/Claude)** + **Python** to analyze your Kubernetes cluster, inspect pods & deployments, and generate human-friendly summaries and troubleshooting recommendations.
 
-This project builds an **AI-powered Kubernetes Assistant** capable of analyzing cluster state, summarizing workloads, detecting issues, and giving intelligent DevOps recommendations — all through **natural language commands**.
+This project includes **optional support for CrewAI**, enabling autonomous multi-step reasoning and tool execution
+
+This project is fully compatible with:
+- Minikube (local cluster)
+- OpenRouter AI models (Free/Wide Model Support)
+- Kubernetes Python SDK
 
 It uses:
 
