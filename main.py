@@ -1,14 +1,12 @@
-from agent.k8s_agent import K8sAgent
 from agent.crew_config import create_ai_agent
 
-k8s = K8sAgent()
-assistant = create_ai_agent(k8s)
+assistant = create_ai_agent()
 
-print("Kubernetes AI Agent Started. Ask anything:\n")
+print("\nKubernetes AI Agent Started. Ask anything:\n")
 
 while True:
     query = input("You: ")
-    if query.lower() in ["exit", "quit"]:
+    if query.lower() in ["exit", "quit", "bye"]:
         break
     response = assistant(query)
-    print("\nAI Agent:", response, "\n")
+    print("\nAI:", response, "\n")
