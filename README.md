@@ -18,6 +18,13 @@ It uses:
 
 This project is perfect for DevOps + AI portfolio building.
 
+
+## 🖼 Project Banner  
+![Project Banner](asset/first.png)
+![Project Banner](asset/healthy.png)
+![Project Banner](asset/last.png)
+*(Upload your banner as `assets/banner.png`)*
+
 ---
 
 ## 🚀 Features
