@@ -1,5 +1,4 @@
 from kubernetes import client, config
-import datetime
 
 class K8sAgent:
     def __init__(self, kubeconfig_path="config/kubeconfig"):
@@ -15,7 +14,10 @@ class K8sAgent:
                 "name": pod.metadata.name,
                 "status": pod.status.phase,
                 "node": pod.spec.node_name,
-                "restarts": pod.status.container_statuses[0].restart_count
+                "restarts": (
+                    pod.status.container_statuses[0].restart_count
+                    if pod.status.container_statuses else 0
+                )
             })
         return pod_list
 
@@ -26,15 +28,15 @@ class K8sAgent:
             deploy_list.append({
                 "name": dep.metadata.name,
                 "replicas": dep.status.replicas,
-                "available": dep.status.available_replicas,
+                "available": dep.status.available_replicas
             })
         return deploy_list
 
-    def summarize_cluster(self):
-        pods = self.get_pods()
-        deployments = self.get_deployments()
+    def summarize_cluster(self, namespace="default"):
+        pods = self.get_pods(namespace)
+        deployments = self.get_deployments(namespace)
 
-        summary = f"Cluster Summary ({datetime.datetime.now()}):\n\n"
+        summary = "Cluster Summary:\n"
         summary += f"Pods: {len(pods)}\n"
         for p in pods:
             summary += f"- {p['name']} (Status: {p['status']}, Restarts: {p['restarts']})\n"

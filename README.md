@@ -34,7 +34,7 @@ k8s-ai-agent/
 ├── agent/
 │   ├── __init__.py
 │   ├── k8s_agent.py        # Fetches pod/deployment info from Kubernetes
-│   ├── crew_config.py      # AI agent configuration using CrewAI + OpenAI
+│   ├── ai_agent.py      # AI agent configuration using CrewAI + OpenAI
 │
 ├── config/
 │   └── kubeconfig          # Kubernetes cluster authentication (auto generated)

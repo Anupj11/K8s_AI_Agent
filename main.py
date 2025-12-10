@@ -1,12 +1,16 @@
-from agent.crew_config import create_ai_agent
+from agent.ai_agent import handle_query
 
-assistant = create_ai_agent()
-
-print("\nKubernetes AI Agent Started. Ask anything:\n")
+print("\n🚀 Kubernetes AI Assistant Running! Ask anything:\n")
 
 while True:
-    query = input("You: ")
-    if query.lower() in ["exit", "quit", "bye"]:
+    user = input("You: ").strip()
+
+    if user.lower() in ["exit", "quit", "bye"]:
+        print("👋 Exiting Kubernetes AI Assistant.")
         break
-    response = assistant(query)
-    print("\nAI:", response, "\n")
+
+    try:
+        response = handle_query(user)
+        print("\nAI:", response, "\n")
+    except Exception as e:
+        print("\n❌ Error:", e, "\n")
